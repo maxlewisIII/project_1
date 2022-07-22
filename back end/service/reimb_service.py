@@ -1,5 +1,5 @@
 from flask import session
-from dao.reimbursement_dao import ReimbursementDao
+from dao.reimb_dao import ReimbursementDao
 # from exceptions.incorrect_user_error import IncorrectUserError
 from model.user import User
 from dao.user_dao import UserDao

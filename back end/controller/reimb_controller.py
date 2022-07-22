@@ -1,7 +1,7 @@
 from flask import Blueprint, request, session
 from model.user import User
 from model.reimbursement import Reimbursement
-from service.reimbursement_service import ReimbursementService
+from service.reimb_service import ReimbursementService
 
 
 rc = Blueprint('reimbursement_controller', __name__)
@@ -20,3 +20,4 @@ def get_all_reimbs():
     return {
         "reimbursements": reimbursement_service.get_all_reimbs()
     }
+

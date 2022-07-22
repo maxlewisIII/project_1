@@ -96,3 +96,11 @@ class UserService:
         added_user_obj = self.user_dao.add_user(user_obj)
 
         return added_user_obj.to_dict()
+
+    def login(self, username, password):
+        user_obj = self.user_dao.get_user_by_username_and_password(username, password)
+
+        if user_obj is None:
+            raise LoginError("Invalid username and/or password")
+
+        return user_obj.to_dict()

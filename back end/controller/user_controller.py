@@ -8,6 +8,26 @@ from service.user_service import UserService
 uc = Blueprint("user_controller", __name__)
 user_service = UserService()
 
+@uc.route('/login', methods=['POST'])
+def login():
+    request_body_dict = request.get_json()
+
+    username = request_body_dict['username']
+    password = request_body_dict['password']
+
+    try:
+        user_dict = user_service.login(username, password)
+
+        session['user_info'] = user_dict
+
+        return user_dict, 200
+    except LoginError as e:
+        return {
+            "message": str(e)
+        }, 400
+
+
+
 @uc.route('/users', methods=['POST'])
 def add_user():
     request_body_dict = request.get_json()
