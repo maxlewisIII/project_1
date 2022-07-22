@@ -18,12 +18,12 @@ class Reimbursement:
             'reimbursement_amount': self.reimbursement_amount,
             'submission_date': self.submission_date,
             'resolved_date': self.resolved_date,
-            'status' : self.status,
-            'type' : self.type,
-            'description' : self.description,
+            'status': self.status,
+            'type': self.type,
+            'description': self.description,
             'receipt' : self.receipt,
-            'reimb_author' : self.reimb_author,
-            'reimb_resolver' : self.reimb_resolver,
+            'reimb_author': self.reimb_author,
+            'reimb_resolver': self.reimb_resolver,
         }
 
 r1 = Reimbursement(1, 1000, '', '', 'pending', 'travel', 'hotel', '', '1', '')

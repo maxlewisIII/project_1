@@ -15,6 +15,8 @@ def get_all_reimb_by_user_id(user_id):
     status = args.get('status')
     return {"reimbursements": reimbursement_service.get_all_reimb_by_user_id(user_id)}
 
-@rc.route("/users")
-def myfun():
-    return '1'
+@rc.route("/reimbursements")
+def get_all_reimbs():
+    return {
+        "reimbursements": reimbursement_service.get_all_reimbs()
+    }

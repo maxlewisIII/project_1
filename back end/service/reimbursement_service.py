@@ -14,3 +14,14 @@ class ReimbursementService:
     def get_all_reimb_by_user_id(self, user_id):
         return list(map(lambda a: a.to_dict(), self.reimbursement_dao.get_all_reimb_by_user_id(user_id)))
 
+    def get_all_reimbs(self):
+        list_of_reimbs = self.reimbursement_dao.get_all_reimbs()
+
+        list_of_reimb_dictionaries = []
+        for reimb_obj in list_of_reimbs:
+            list_of_reimb_dictionaries.append(reimb_obj.to_dict())
+
+        return list_of_reimb_dictionaries
+
+
+
