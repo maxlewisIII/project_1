@@ -3,7 +3,7 @@ from flask import Blueprint, request, session
 from exception.login import LoginError
 from exception.registration import RegistrationError
 from model.user import User
-from services.user_service import UserService
+from service.user_service import UserService
 
 uc = Blueprint("user_controller", __name__)
 user_service = UserService()
@@ -11,7 +11,6 @@ user_service = UserService()
 @uc.route('/users', methods=['POST'])
 def add_user():
     request_body_dict = request.get_json()
-
 
     user_id = request_body_dict.get('user_id')
     username = request_body_dict.get('username')
@@ -30,3 +29,4 @@ def add_user():
         }, 400
 
     return added_user, 201
+

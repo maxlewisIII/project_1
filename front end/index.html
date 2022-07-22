@@ -48,49 +48,58 @@
                 <form class="box is-shadowless">
                     <h2 class="title is-size-3">Sign Up</h2>
                     <div class="field">
+                      <label class="label">User ID</label>
+                      <div class="control">
+                        <input class="input" type="text" placeholder="select a number" id="user-id-input">
+                      </div>
+                    </div>
+                    <div class="field">
                       <label class="label">Username</label>
                       <div class="control">
-                        <input class="input" type="text" placeholder="username">
+                        <input class="input" type="text" placeholder="Username" id="username-input">
                       </div>
                     </div>
                     <div class="field">
                       <label class="label">Password</label>
                       <div class="control">
-                        <input class="input" type="password" placeholder="********">
+                        <input class="input" type="password" placeholder="********" id="password-input">
                       </div>
                     </div>
                     <div class="field">
                         <label class="label">First Name</label>
                         <div class="control">
-                          <input class="input" type="text" placeholder="First Name">
+                          <input class="input" type="text" placeholder="First Name" id="firstname-input">
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Last Name</label>
                         <div class="control">
-                          <input class="input" type="text" placeholder="Last Name">
+                          <input class="input" type="text" placeholder="Last Name" id="lastname-input">
                         </div>
                     </div>
                     <div class="field">
                       <label class="label">Email</label>
                       <div class="control">
-                        <input class="input" type="email" placeholder="e.g. alex@example.com">
+                        <input class="input" type="email" placeholder="e.g. alex@example.com" id="email-input">
                       </div>
                     </div>
                     
                     <div class="block">
                         <label class="radio">
-                            <input type="radio" name="answer">
+                            <input type="radio" name="role">
                             Employee
                         </label>
                         <label class="radio">
-                            <input type="radio" name="answer">
+                            <input type="radio" name="role">
                             Manager
                         </label>
                     </div>
-                    <button class="button is-success">Sign Up</button>  
+                    <button id="register-submit-btn" class="button is-success">Sign Up</button>  
                 </form>
                 
+            </div>
+            <div class="column is-one-fifth">
+
             </div>
         </div>
      
