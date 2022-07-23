@@ -1,8 +1,9 @@
 let reimbTbody = document.getElementById('reimb-tbody');
 let username = sessionStorage.getItem('username');
 let firstname = sessionStorage.getItem('first_name');
+let logoutButton = document.getElementById('logout-btn')
 
-document.addEventListener('click', async (e) => {
+document.addEventListener('DOMContentLoaded', async (e) => {
     e.preventDefault()
     
     try {
@@ -33,13 +34,13 @@ function addReimbsToTable(reimb_obj) {
         idCell.innerHTML = reimb.reimb_id;
         
         let amountCell = document.createElement('td');
-        amountCell.innerHTML = reimb.amount;
+        amountCell.innerHTML = reimb.reimbursement_amount;
         
         let addedCell = document.createElement('td');
-        addedCell.innerHTML = reimb.added;
+        addedCell.innerHTML = reimb.submission_date;
         
         let resolvedCell = document.createElement('td');
-        resolvedCell.innerHTML = reimb.resolved
+        resolvedCell.innerHTML = reimb.resolved_date
         
         let statusCell = document.createElement('td');
         statusCell.innerHTML = reimb.status;
@@ -50,14 +51,14 @@ function addReimbsToTable(reimb_obj) {
         let descriptionCell = document.createElement('td');
         descriptionCell.innerHTML = reimb.description
         
-        let recieptCell = document.createElement('td');
-        recieptCell.innerHTML = reimb.reciept
+        let receiptCell = document.createElement('td');
+        receiptCell.innerHTML = reimb.receipt
         
         let authorCell = document.createElement('td');
-        authorCell.innerHTML = reimb.author
+        authorCell.innerHTML = reimb.reimb_author
         
         let resolverCell = document.createElement('td');
-        resolverCell.innerHTML = reimb.resolver
+        resolverCell.innerHTML = reimb.reimb_resolver
 
         row.appendChild(idCell);
         row.appendChild(amountCell);
@@ -66,10 +67,27 @@ function addReimbsToTable(reimb_obj) {
         row.appendChild(statusCell);
         row.appendChild(typeCell);
         row.appendChild(descriptionCell);
-        row.appendChild(recieptCell);
+        row.appendChild(receiptCell);
         row.appendChild(authorCell);
         row.appendChild(resolverCell);
 
         reimbTbody.appendChild(row);
     }
 };
+
+logoutButton.addEventListener('click', async (e) => {
+    e.preventDefault()
+    let res = await fetch('http://127.0.0.1:8082/logout', {
+        
+        'credentials': 'include',
+        'method': 'POST',
+        'headers': {
+            'Content-Type': 'application/json'
+        },
+    })
+
+    if (res.status == 200) {
+        console.log("Logout successful")
+        window.location.href="./login.html"
+    }
+});

@@ -37,7 +37,8 @@ def logout():
 
     return {
         "message": "Successfully logged out"
-    }, 200
+    }, 200, session.clear()
+
 
 @uc.route('/loginstatus', methods=['GET'])
 def loginstatus():

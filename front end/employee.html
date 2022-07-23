@@ -9,63 +9,116 @@
   <script defer src="/employee.js"></script>
 </head>
 
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="reimbursity_logo.png" width="140" height="28"
+      >
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/index.html">
+        About
+      </a>
+
+      <a class="navbar-item" href="/employee.html">
+        Reimbursements
+      </a>
+
+      <a class="navbar-item" href="/registration.html">
+        Create Account
+      </a>
+
+    
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-success" href="/login.html">
+            <strong>Log in</strong>
+          </a>
+          <a class="button is-light" id="logout-btn">
+            Log out
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
 <body>
     <div>
-        <h1 class="reimb"><strong></strong></h1>
-        <table class="table is-fullwidth">
-            <thead>
-                <tr>
-                    <th><abbr title="ID">ID</abbr></th>
-                    <th><abbr title="Amount">Amount</abbr></th>
-                    <th><abbr title="Added">Added</abbr></th>
-                    <th><abbr title="Resolved">Resolved</abbr></th>
-                    <th><abbr title="Status">Status</abbr></th>
-                    <th><abbr title="Type">Type</abbr></th>
-                    <th><abbr title="Description">Description</abbr></th>
-                    <th><abbr title="Reciept">Reciept</abbr></th>
-                    <th><abbr title="Author">Author</abbr></th>
-                    <th><abbr title="Resolver">Resolver</abbr></th>
-                </tr>
-            </thead>
-            <tbody id="reimb-tbody">
-            </tbody>
-        </table>
+        <!-- <h1 class="reimb"><strong></strong></h1> -->
+        
+        <div class="block m-5">
+          <table class="table is-fullwidth">
+              <thead>
+                  <tr>
+                      <th><abbr title="ID">ID</abbr></th>
+                      <th><abbr title="Amount">Amount</abbr></th>
+                      <th><abbr title="Added">Added</abbr></th>
+                      <th><abbr title="Resolved">Resolved</abbr></th>
+                      <th><abbr title="Status">Status</abbr></th>
+                      <th><abbr title="Type">Type</abbr></th>
+                      <th><abbr title="Description">Description</abbr></th>
+                      <th><abbr title="Receipt">Receipt</abbr></th>
+                      <th><abbr title="Author">Author</abbr></th>
+                      <th><abbr title="Resolver">Resolver</abbr></th>
+                  </tr>
+              </thead>
+              <tbody id="reimb-tbody">
+              <var></var>
+              </tbody>
+          </table>
+        </div>  
+        
     </div>
     <div>
-        <div class="dropdown is-hoverable">
-            <div class="dropdown-trigger">
-              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                <span>Filter Reimbursements</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-                <div class="dropdown-content">
-                  <div class="dropdown-item">
-                    <p>All</p>
+        <div class="block m-5">
+          <div class="dropdown is-hoverable">
+              <div class="dropdown-trigger">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                  <span>Filter Reimbursements</span>
+                  <span class="icon is-small">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                  <div class="dropdown-content">
+                    <div class="dropdown-item">
+                      <p>All</p>
+                    </div>
+                    <hr class="dropdown-divider">
+                    <div class="dropdown-item">
+                      <p>Pending</p>
+                    </div>
+                    <hr class="dropdown-divider">
+                    <div class="dropdown-item">
+                      <p>Approved</p>
+                    </div>
+                    <hr class="dropdown-divider">
+                    <div class="dropdown-item">
+                      <p>Denied</p>
+                    </div>
+                    
+                    <!-- <a href="#" class="dropdown-item">
+                      This is a link
+                    </a> -->
                   </div>
-                  <hr class="dropdown-divider">
-                  <div class="dropdown-item">
-                    <p>Pending</p>
-                  </div>
-                  <hr class="dropdown-divider">
-                  <div class="dropdown-item">
-                    <p>Approved</p>
-                  </div>
-                  <hr class="dropdown-divider">
-                  <div class="dropdown-item">
-                    <p>Denied</p>
-                  </div>
-                  
-                  <!-- <a href="#" class="dropdown-item">
-                    This is a link
-                  </a> -->
-                </div>
-            </div>
-        </div>
+              </div>
+          </div>
         <button class="button">Add New</button>
+      </div>
     </div>
 </body>
 </html>
