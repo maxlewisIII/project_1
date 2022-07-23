@@ -10,10 +10,15 @@ user_service = UserService()
 
 @uc.route('/login', methods=['POST'])
 def login():
+
     request_body_dict = request.get_json()
+
 
     username = request_body_dict['username']
     password = request_body_dict['password']
+
+    print("test", username, password)
+
 
     try:
         user_dict = user_service.login(username, password)
@@ -26,6 +31,25 @@ def login():
             "message": str(e)
         }, 400
 
+@uc.route('/logout', methods=['POST'])
+def logout():
+    session.clear()
+
+    return {
+        "message": "Successfully logged out"
+    }, 200
+
+@uc.route('/loginstatus', methods=['GET'])
+def loginstatus():
+    if session.get('user_info') is not None:
+        return {
+            "message": "You are logged in",
+            "logged_in_user": session.get('user_info')
+        }, 200
+    else:
+        return {
+            "message": "You are not logged in"
+        }, 200
 
 
 @uc.route('/users', methods=['POST'])
