@@ -26,5 +26,5 @@ class Reimbursement:
             'reimb_resolver': self.reimb_resolver,
         }
 
-r1 = Reimbursement(1, 1000, '', '', 'pending', 'travel', 'hotel', '', '1', '')
-print(r1.to_dict())
+# r1 = Reimbursement(1, 1000, '', '', 'pending', 'travel', 'hotel', '', '1', '')
+# print(r1.to_dict())

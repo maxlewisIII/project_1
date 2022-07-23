@@ -44,7 +44,7 @@ def loginstatus():
     if session.get('user_info') is not None:
         return {
             "message": "You are logged in",
-            "logged_in_user": session.get('user_info')
+            "logged in user": session.get('user_info')
         }, 200
     else:
         return {
