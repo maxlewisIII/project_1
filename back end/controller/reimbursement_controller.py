@@ -26,7 +26,7 @@ def get_all_reimbs():
 @rc.route("/users/<user_id>/reimbursements", methods=["POST"])
 def add_reimb_for_user(user_id):
     new_reimb = request.get_json()
-    reimb_object = Reimbursement(None, new_reimb['reimb_amount'], None, None, None, new_reimb['type'],
+    reimb_object = Reimbursement(None, new_reimb['reimb_amount'], new_reimb['submission_date'], None, None, new_reimb['type'],
                                  new_reimb['description'], None, user_id, None)
 
     try:

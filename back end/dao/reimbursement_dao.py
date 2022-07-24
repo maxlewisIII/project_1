@@ -64,12 +64,13 @@ class ReimbursementDao:
         type_to_add = reimb_object.type
         description_to_add = reimb_object.description
         user_id_to_add = reimb_object.reimb_author
+        date_to_add = reimb_object.submission_date
 
         with psycopg.connect(host="127.0.0.1", port="5432", dbname="postgres", user="postgres", password="1234") as conn:
 
             with conn.cursor() as cur:
-                cur.execute("INSERT INTO reimbursement (reimb_amount, type, description, reimb_author) VALUES (%s, %s, %s, %s) RETURNING *",
-                            (amount_to_add, type_to_add, description_to_add, user_id_to_add))
+                cur.execute("INSERT INTO reimbursement (reimb_amount, type, description, reimb_author, submission_date) VALUES (%s, %s, %s, %s, %s) RETURNING *",
+                            (amount_to_add, type_to_add, description_to_add, user_id_to_add, date_to_add))
 
                 reimb_row = cur.fetchone()
 
