@@ -1,8 +1,8 @@
 class Reimbursement:
-    def __init__(self, reimb_id, reimbursement_amount, submission_date,
+    def __init__(self, reimb_id, reimb_amount, submission_date,
                  resolved_date, status, type, description, receipt, reimb_author, reimb_resolver):
         self.reimb_id = reimb_id
-        self.reimbursement_amount = reimbursement_amount
+        self.reimb_amount = reimb_amount
         self.submission_date = submission_date
         self.resolved_date = resolved_date
         self.status = status
@@ -15,13 +15,13 @@ class Reimbursement:
     def to_dict(self):
         return {
             'reimb_id': self.reimb_id,
-            'reimbursement_amount': self.reimbursement_amount,
+            'reimb_amount': self.reimb_amount,
             'submission_date': self.submission_date,
             'resolved_date': self.resolved_date,
             'status': self.status,
             'type': self.type,
             'description': self.description,
-            'receipt' : self.receipt,
+            'receipt': self.receipt,
             'reimb_author': self.reimb_author,
             'reimb_resolver': self.reimb_resolver,
         }

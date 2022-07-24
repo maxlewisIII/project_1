@@ -1,8 +1,8 @@
 from flask import session
-from dao.reimb_dao import ReimbursementDao
-# from exceptions.incorrect_user_error import IncorrectUserError
+from dao.reimbursement_dao import ReimbursementDao
 from model.user import User
 from dao.user_dao import UserDao
+from exception.invalid_parameter import InvalidParameterError
 
 
 class ReimbursementService:
@@ -22,6 +22,12 @@ class ReimbursementService:
             list_of_reimb_dictionaries.append(reimb_obj.to_dict())
 
         return list_of_reimb_dictionaries
+
+    def add_reimb_for_user(self, reimb_object):
+        # if not self.reimbursement_dao.add_reimb_for_user(reimb_object):
+        #     raise InvalidParameterError()
+        return self.reimbursement_dao.add_reimb_for_user(reimb_object).to_dict()
+
 
 
 
