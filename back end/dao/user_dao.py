@@ -41,11 +41,11 @@ class UserDao:
                 password = user_info[1]
                 first_name = user_info[2]
                 last_name = user_info[3]
-                gender = user_info[4]
+                user_id = user_info[4]
                 phone_number = user_info[5]
                 email_address = user_info[6]
 
-                return User(username, password, first_name, last_name, gender, phone_number, email_address)
+                return User(username, password, first_name, last_name, user_id, phone_number, email_address)
 
     def get_user_by_email(self, email):
         with psycopg.connect(host="127.0.0.1", port="5432", dbname="postgres", user="postgres",

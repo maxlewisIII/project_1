@@ -1,13 +1,14 @@
 let reimbTbody = document.getElementById('reimb-tbody');
 let username = sessionStorage.getItem('username');
-let firstname = sessionStorage.getItem('first_name');
 let logoutButton = document.getElementById('logout-btn')
 
-document.addEventListener('DOMContentLoaded', async (e) => {
-    e.preventDefault()
+let user_id = sessionStorage.getItem('user_id')
+
+document.addEventListener('DOMContentLoaded', async () => {
+
     
     try {
-        let res = await fetch(`http://127.0.0.1:8082/users/1/reimbursements`, {
+        let res = await fetch(`http://127.0.0.1:8082/users/${user_id}/reimbursements`, {
         // 'mode': 'no-cors',
         'credentials': 'include',
         'method': 'GET',

@@ -19,18 +19,32 @@ loginButton.addEventListener('click', async (e) => {
             "password": passwordInput.value
         })
     })
-    let data = await res.json()
+    
 
     if (res.status == 200) {
-        console.log(data);
-        console.log('Successful Login');
-        window.location.href = '/employee.html';
+        let data = await res.json();
 
+        sessionStorage.setItem("role", data.role)
+        let role = sessionStorage.getItem('role')
+        
+        sessionStorage.setItem("user_id", data.user_id)
+        
+        sessionStorage.setItem("username", usernameInput.value)
+
+
+        if (sessionStorage.getItem("role") == 'employee') {
+            
+            window.location.href="./employee.html"
+        }
+        else if (sessionStorage.getItem("role") == ('finance_manager')) {
+            window.location.href="./finance_manager.html"
+        }
     }
 
     else if (res.status != 200) {
         console.log("Unsuccessful login")
     }
-    
-    
+
+
 });
+
