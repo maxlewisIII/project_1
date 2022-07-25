@@ -79,6 +79,25 @@ class ReimbursementDao:
                 return Reimbursement(reimb_row[0], reimb_row[1], reimb_row[2], reimb_row[3], reimb_row[4],
                                      reimb_row[5], reimb_row[6], reimb_row[7], reimb_row[8], reimb_row[9])
 
+    def update_reimb(self, reimb_object):
+        with psycopg.connect(host="127.0.0.1", port='5432', dbname="postgres", user="postgres",
+                             password='1234') as conn:
+            with conn.cursor() as cur:
+                cur.execute('UPDATE reimbursement SET status = %s, reimb_resolver = %s, resolved_date = CURRENT_TIMESTAMP'
+                            ' WHERE reimb_id = %s RETURNING *',
+                            (reimb_object.status, reimb_object.reimb_resolver, reimb_object.reimb_id))
+
+                conn.commit()
+
+                updated_reimb = cur.fetchone()
+                if updated_reimb is None:
+                    return None
+
+                return Reimbursement(updated_reimb[0], updated_reimb[1], updated_reimb[2], updated_reimb[3],
+                                     updated_reimb[4], updated_reimb[5], updated_reimb[6], updated_reimb[7],
+                                     updated_reimb[8], updated_reimb[9])
+
+
 
 
 

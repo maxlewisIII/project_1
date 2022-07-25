@@ -38,3 +38,12 @@ def add_reimb_for_user(user_id):
         return {
             "message": str(e)
         }, 400
+
+
+@rc.route('/reimbursements/<reimb_id>', methods=['PUT'])
+def update_reimb(reimb_id):
+    new_reimb = request.get_json()
+    return reimbursement_service.update_reimb(Reimbursement(reimb_id, None, None, None,
+                                                            new_reimb['status'], None, None,
+                                                            None, None, new_reimb['reimb_resolver']))
+

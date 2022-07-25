@@ -28,6 +28,7 @@ class ReimbursementService:
         #     raise InvalidParameterError()
         return self.reimbursement_dao.add_reimb_for_user(reimb_object).to_dict()
 
-
+    def update_reimb(self, reimb_object):
+        return self.reimbursement_dao.update_reimb(reimb_object).to_dict()
 
 

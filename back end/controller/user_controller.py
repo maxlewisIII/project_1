@@ -14,10 +14,10 @@ def login():
     request_body_dict = request.get_json()
 
 
-    username = request_body_dict['username']
-    password = request_body_dict['password']
+    username = request_body_dict.get('username')
+    password = request_body_dict.get('password')
 
-    print("test", username, password)
+    # print("test")
 
 
     try:
