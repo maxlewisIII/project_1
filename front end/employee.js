@@ -35,7 +35,7 @@ function addReimbsToTable(reimb_obj) {
         idCell.innerHTML = reimb.reimb_id;
         
         let amountCell = document.createElement('td');
-        amountCell.innerHTML = reimb.reimbursement_amount;
+        amountCell.innerHTML = reimb.reimb_amount;
         
         let addedCell = document.createElement('td');
         addedCell.innerHTML = reimb.submission_date;

@@ -29,6 +29,9 @@ def add_reimb_for_user(user_id):
     reimb_object = Reimbursement(None, new_reimb['reimb_amount'], new_reimb['submission_date'], None, None, new_reimb['type'],
                                  new_reimb['description'], None, user_id, None)
 
+    # reimb_object = Reimbursement(None, new_reimb['reimb_amount'], new_reimb['submission_date'], None, None, new_reimb['type'],
+    #                              new_reimb['description'], None, user_id, None)
+
     try:
         return reimbursement_service.add_reimb_for_user(reimb_object), 201
     except InvalidParameterError as e:
