@@ -60,21 +60,47 @@
                     <h2 class="title is-size-4">Approve/Deny</h2>
                     <div class="field">
                       <label class="label">Reimbursement ID</label>
+                      
                       <div class="control">
-                        <input class="input" type="number" placeholder="Enter ID" id="reimb-id-input">
+                        <input class="input" type="number" placeholder="Enter Amount" id="reimb-id-input">
                       </div>
+
                     </div>
-                    
-                    <div class="control">
-                        <label class="radio" id="status-btn">
-                          <input type="radio" name="answer" id="approve-btn">
+
+                    <div class="field">
+                      <label class="label">Gender</label>
+                      <div class="control">
+                        <label class="radio">
+                          <input type="radio" name="status" value="approved">
                           Approve
                         </label>
                         <label class="radio">
-                          <input type="radio" name="answer" id="deny-btn">
+                          <input type="radio" name="status" value="denied">
                           Deny
                         </label>
+                        <!-- <label class="radio">
+                          <input type="radio" checked name="status" value="other">
+                          Other
+                        </label> -->
+                      </div>
                     </div>
+
+
+
+
+
+
+                    
+                    <!-- <div class="control">
+                        <label class="radio" name="status-btn" id="status-btn">
+                          <input type="radio" name="answer" value="approved" id="approve-btn">
+                          Approve
+                        </label>
+                        <label class="radio">
+                          <input type="radio" name="status-btn" value="denied" id="deny-btn">
+                          Deny
+                        </label>
+                    </div> -->
 
                     <a class="button is-success mt-3" id="update-entry-btn">
                         <strong>Update Entry</strong>

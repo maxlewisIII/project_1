@@ -17,9 +17,6 @@ def login():
     username = request_body_dict.get('username')
     password = request_body_dict.get('password')
 
-    # print("test")
-
-
     try:
         user_dict = user_service.login(username, password)
 

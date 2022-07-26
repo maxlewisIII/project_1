@@ -97,6 +97,34 @@ class ReimbursementDao:
                                      updated_reimb[4], updated_reimb[5], updated_reimb[6], updated_reimb[7],
                                      updated_reimb[8], updated_reimb[9])
 
+    def get_reimbs_by_status(self, status):
+        with psycopg.connect(host="127.0.0.1", port="5432", dbname="postgres", user="postgres",
+                             password="1234") as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT * FROM reimbursement WHERE status = %s", (status,))
+
+                my_list_of_reimbursements = []
+
+                for reimb in cur:
+                    reimb_id = reimb[0]
+                    reimb_amount = reimb[1]
+                    submission_date = reimb[2]
+                    resolved_date = reimb[3]
+                    status = reimb[4]
+                    type = reimb[5]
+                    description = reimb[6]
+                    receipt = reimb[7]
+                    reimb_author = reimb[8]
+                    reimb_resolver = reimb[9]
+
+
+                    my_reimb_obj = Reimbursement(reimb_id, reimb_amount, submission_date, resolved_date, status,
+                                            type, description, receipt, reimb_author, reimb_resolver)
+                    my_list_of_reimbursements.append(my_reimb_obj)
+
+                return my_list_of_reimbursements
+
+
 
 
 

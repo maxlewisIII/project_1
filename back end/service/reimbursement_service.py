@@ -31,4 +31,11 @@ class ReimbursementService:
     def update_reimb(self, reimb_object):
         return self.reimbursement_dao.update_reimb(reimb_object).to_dict()
 
+    def get_reimbs_by_status(self, status):
+        if status is None:
+            return list(map(lambda x: x.to_dict(), self.reimbursement_dao.get_all_reimbs()))
+
+        if status is not None:
+            return list(map(lambda x: x.to_dict(), self.reimbursement_dao.get_reimbs_by_status(status)))
+
 

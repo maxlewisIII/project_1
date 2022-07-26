@@ -29,6 +29,8 @@ loginButton.addEventListener('click', async (e) => {
         
         sessionStorage.setItem("username", usernameInput.value)
 
+        sessionStorage.setItem("reimb_resolver", data.user_id)
+
 
         if (sessionStorage.getItem("role") == 'employee') {
             

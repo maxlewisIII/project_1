@@ -1,20 +1,20 @@
-let statusButtons = document.getElementById('status-btn')
-let reimbID = document.getElementById('reimb-id-btn')
+let reimbID = document.getElementById('reimb-id-input')
 let updateEntryButton = document.getElementById('update-entry-btn')
+let statusButtons = document.querySelectorAll('input[name="status"]')
+let reimb_resolver = sessionStorage.getItem('reimb_resolver')
 
 let today = new Date()
 
-
 updateEntryButton.addEventListener('click', async () => {
-    // let selectedRadioButton;
-    // for (let radioBtn of statusButtons){
-    //     if (radioBtn.checked){
-    //         selectedRadioButton = radioBtn
-    //         break;
-    //     }
-    // }
+    let selectedRadioButton;
+    for (let radioBtn of statusButtons){
+        if (radioBtn.checked){
+            selectedRadioButton = radioBtn
+            break;
+        }
+    }
 
-    let res = await fetch(`http://127.0.0.1:8082/reimbursements/6`, {
+    let res = await fetch(`http://127.0.0.1:8082/reimbursements/${reimbID.value}`, {
             // 'mode': 'no-cors',
             'credentials': 'include',
             'method': 'PUT',
@@ -22,19 +22,19 @@ updateEntryButton.addEventListener('click', async () => {
                 'Content-Type': 'application/json'
             },
             'body': JSON.stringify({
-                "reimb_id": "6",
-                "status": "approved",
-                "submission_date": today
 
-                // "reimb_id": reimbID.value,
-                // "reimb_status": selectedRadioButton.value,
-                // "submission_date": today
+                "status": selectedRadioButton.value,
+                "submission_date": today,
+                "reimb_resolver": '2'
+
             })
         })
 
     if(res.status == 201) {
+
+        console.log("success")
+        window.location.href = '/finance_manager.html'
         
-        // window.location.href = '/finance_manager.html'
     
     } else {
         console.log("update failed");
