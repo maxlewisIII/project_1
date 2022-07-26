@@ -36,7 +36,7 @@ loginButton.addEventListener('click', async (e) => {
             
             window.location.href="./employee.html"
         }
-        else if (sessionStorage.getItem("role") == ('finance manager')) {
+        else if (sessionStorage.getItem("role") == ('finance_manager')) {
             window.location.href="./finance_manager.html"
         }
     }

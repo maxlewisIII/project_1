@@ -57,20 +57,20 @@ selectElement.addEventListener('change', async (event) => {
         })
     
 
-    dropdownButton.addEventListener('click', async (e) => {
-            e.preventDefault()
-            let res = await fetch(`http://127.0.0.1:8082/reimbursements?${select.value}`, {
-                'credentials': 'include',
-                'method': 'GET',
-                'headers': {
-                    'Content-Type': 'application/json'}});
+    // dropdownButton.addEventListener('click', async (e) => {
+    //         e.preventDefault()
+    //         let res = await fetch(`http://127.0.0.1:8082/reimbursements?${select.value}`, {
+    //             'credentials': 'include',
+    //             'method': 'GET',
+    //             'headers': {
+    //                 'Content-Type': 'application/json'}});
             
-            let data = await res.json();
+    //         let data = await res.json();
         
-            reimbTbody.innerHTML = ""
+    //         reimbTbody.innerHTML = ""
         
-            addReimbsToTable(data.reimbursements);
-        })
+    //         addReimbsToTable(data.reimbursements);
+    //     })
 
 
 

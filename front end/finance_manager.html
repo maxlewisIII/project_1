@@ -29,9 +29,7 @@
         About
       </a>
 
-      <a class="navbar-item" href="/employee.html">
-        Reimbursements
-      </a>
+
 
       <a class="navbar-item" href="/registration.html">
         Create Account
@@ -86,7 +84,7 @@
     <div>
         <div class="block m-5">
 
-          <div class="dropdown">
+          <!-- <div class="dropdown">
               <div id="dropdown" class="dropdown-content">
                   <select class="status" name="status">
                       <option value="pending">Pending</option>
@@ -95,40 +93,24 @@
                   </select>
               </div>
               <div class="result"></div>
+          </div> -->
+
+          <div class="select">
+                  <select class="status" name="status">
+                      <!-- <option href="/finance_manager.html" value="">Filter By Status</option> -->
+                      <option href="" value="">Filter By Status</option>
+                      <option value="pending">Pending</option>
+                      <option value="approved">Approved</option>
+                      <option value="denied">Denied</option>
+                  </select>
+
+              <div class="result"></div>
           </div>
 
 
 
-          <!-- <div class="dropdown is-hoverable">
-              <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                  <span>Filter Reimbursements</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </div>
-              <div class="dropdown-menu" id="status-select" role="menu">
-                  <div class="dropdown-content">
-                    <div class="dropdown-item">
-                      <option value="all">All</option>
-                    </div>
-                    <hr class="dropdown-divider">
-                    <div class="dropdown-item">
-                      <option value="pending">Pending</option>
-                    </div>
-                    <hr class="dropdown-divider">
-                    <div class="dropdown-item">
-                     <option value="approved">Approved</option>
-                    </div>
-                    <hr class="dropdown-divider">
-                    <div class="dropdown-item">
-                      <option value="denied">Denied</option>
-                    </div>
-                  </div>
-              </div>
-          
-          </div> -->
+        
+
           <a class="button is-success" href="/update_status.html">
             <strong>Approve/Deny</strong>
           </a>

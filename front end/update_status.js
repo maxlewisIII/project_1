@@ -2,6 +2,7 @@ let reimbID = document.getElementById('reimb-id-input')
 let updateEntryButton = document.getElementById('update-entry-btn')
 let statusButtons = document.querySelectorAll('input[name="status"]')
 let reimbResolver = sessionStorage.getItem('reimb_resolver')
+let userID = sessionStorage.getItem('user_id')
 
 let today = new Date()
 
@@ -25,7 +26,12 @@ updateEntryButton.addEventListener('click', async () => {
 
                 "status": selectedRadioButton.value,
                 "submission_date": today,
-                "reimb_resolver": reimbResolver.value
+                "reimb_resolver": '3'              
+
+
+                // "status": selectedRadioButton.value,
+                // "submission_date": today,
+                // "reimb_resolver": reimbResolver.value
                 
             })
         })
