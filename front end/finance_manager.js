@@ -1,6 +1,10 @@
 let reimbTbody = document.getElementById('reimb-tbody');
 let username = sessionStorage.getItem('username');
-let logoutButton = document.getElementById('logout-btn')
+let logoutButton = document.getElementById('logout-btn');
+
+let selectedStatus = document.querySelector('#status-select');
+let dropdownButton = document.getElementById('dropdown-btn');
+
 
 let user_id = sessionStorage.getItem('user_id')
 
@@ -25,6 +29,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 }
 );
 
+// var q_status;
+
+// selectedStatus.addEventListener('change', (e) => {
+//     q_status = e.target.value;
+// })
+
+// dropdownButton.addEventListener('click', async (e) => {
+//     e.preventDefault()
+//     let res = await fetch(`http://127.0.0.1:8082/reimbursements?status=${q_status}`, {
+//         'credentials': 'include',
+//         'method': 'GET',
+//         'headers': {
+//             'Content-Type': 'application/json'}});
+    
+//     let data = await res.json();
+//     console.log(q_status)
+
+//     reimbTbody.innerHTML = ""
+
+//     addReimbsToTable(data.reimbursements);
+// })
 
 function addReimbsToTable(reimb_obj) {
       for (reimb of reimb_obj){
