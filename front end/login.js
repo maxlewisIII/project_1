@@ -31,7 +31,6 @@ loginButton.addEventListener('click', async (e) => {
 
         sessionStorage.setItem("reimb_resolver", data.user_id)
 
-
         if (sessionStorage.getItem("role") == 'employee') {
             
             window.location.href="./employee.html"

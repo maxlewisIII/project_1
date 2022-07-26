@@ -6,6 +6,8 @@ let username = sessionStorage.getItem('username');
 let user_id = sessionStorage.getItem('user_id')
 let today = new Date()
 
+console.log(user_id)
+
 // alert("!")
 submitButton.addEventListener('click', async () => {
     
