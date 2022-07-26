@@ -85,7 +85,21 @@
     </div>
     <div>
         <div class="block m-5">
-          <div class="dropdown is-hoverable">
+
+          <div class="dropdown">
+              <div id="dropdown" class="dropdown-content">
+                  <select class="status" name="status">
+                      <option value="pending">Pending</option>
+                      <option value="approved">Approved</option>
+                      <option value="denied">Denied</option>
+                  </select>
+              </div>
+              <div class="result"></div>
+          </div>
+
+
+
+          <!-- <div class="dropdown is-hoverable">
               <div class="dropdown-trigger">
                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                   <span>Filter Reimbursements</span>
@@ -114,7 +128,7 @@
                   </div>
               </div>
           
-          </div>
+          </div> -->
           <a class="button is-success" href="/update_status.html">
             <strong>Approve/Deny</strong>
           </a>

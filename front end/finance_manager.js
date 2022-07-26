@@ -35,9 +35,48 @@ document.addEventListener('DOMContentLoaded', async () => {
 //     q_status = e.target.value;
 // })
 
+// let select = document.getElementById('status-select');
+// console.log(select.value)
+
+const selectElement = document.querySelector('.status');
+
+selectElement.addEventListener('change', async (event) => {
+    
+    event.preventDefault()
+            let res = await fetch(`http://127.0.0.1:8082/reimbursements?status=${selectElement.value}`, {
+                'credentials': 'include',
+                'method': 'GET',
+                'headers': {
+                    'Content-Type': 'application/json'}});
+            
+            let data = await res.json();
+        
+            reimbTbody.innerHTML = ""
+        
+            addReimbsToTable(data.reimbursements);
+        })
+    
+
+    dropdownButton.addEventListener('click', async (e) => {
+            e.preventDefault()
+            let res = await fetch(`http://127.0.0.1:8082/reimbursements?${select.value}`, {
+                'credentials': 'include',
+                'method': 'GET',
+                'headers': {
+                    'Content-Type': 'application/json'}});
+            
+            let data = await res.json();
+        
+            reimbTbody.innerHTML = ""
+        
+            addReimbsToTable(data.reimbursements);
+        })
+
+
+
 // dropdownButton.addEventListener('click', async (e) => {
 //     e.preventDefault()
-//     let res = await fetch(`http://127.0.0.1:8082/reimbursements?status=${q_status}`, {
+//     let res = await fetch(`http://127.0.0.1:8082/reimbursements?status=approved`, {
 //         'credentials': 'include',
 //         'method': 'GET',
 //         'headers': {
