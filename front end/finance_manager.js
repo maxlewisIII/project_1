@@ -29,15 +29,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 }
 );
 
-// var q_status;
-
-// selectedStatus.addEventListener('change', (e) => {
-//     q_status = e.target.value;
-// })
-
-// let select = document.getElementById('status-select');
-// console.log(select.value)
-
 const selectElement = document.querySelector('.status');
 
 selectElement.addEventListener('change', async (event) => {

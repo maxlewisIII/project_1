@@ -1,7 +1,10 @@
-
+from service.user_service import UserService
 from model.reimbursement import Reimbursement
 from service.reimbursement_service import ReimbursementService
+from exception.login import LoginError
+from model.user import User
 import pytest
+
 
 def test_get_all_reimbs(mocker):
     def mock_get_all_reimbs(self):
@@ -41,7 +44,80 @@ def test_get_all_reimbs(mocker):
         }
     ]
 
-# def test_login(mocker):
+def test_login_positive(mocker):
+    def mock_login(self, username, password):
+        if username == 'johndoe' and password == 'pass123$':
+            return (User(1, 'johndoe', 'pass123$', 'John', 'Doe', 'johndoe@gmail.com', 'employee'))
+        else:
+            return None
+
+    mocker.patch('dao.user_dao.UserDao.get_user_by_username_and_password', mock_login)
+
+    user_service = UserService()
+
+    actual = user_service.login("johndoe", "pass123$")
+
+    assert actual == {
+            "user_id": 1,
+            "username": "johndoe",
+            "password": "pass123$",
+            "first_name": "John",
+            "last_name": "Doe",
+            "email_address": "johndoe@gmail.com",
+            "role": "employee"
+        }
+
+def test_login_positive(mocker):
+    def mock_login(self, username, password):
+        if username == 'johndoe' and password == 'pass123$':
+            return (User(1, 'johndoe', 'pass123$', 'John', 'Doe', 'johndoe@gmail.com', 'employee'))
+        else:
+            return None
+
+    mocker.patch('dao.user_dao.UserDao.get_user_by_username_and_password', mock_login)
+
+    user_service = UserService()
+
+    actual = user_service.login("johndoe", "pass123$")
+
+    assert actual == {
+            "user_id": 1,
+            "username": "johndoe",
+            "password": "pass123$",
+            "first_name": "John",
+            "last_name": "Doe",
+            "email_address": "johndoe@gmail.com",
+            "role": "employee"
+        }
+
+def test_login_negative(mocker):
+    def mock_login(self, username, password):
+        if username == 'johndoee' and password == 'pass123$':
+            return (User(1, 'johndoe', 'pass123$', 'John', 'Doe', 'johndoe@gmail.com', 'employee'))
+        else:
+            return None
+
+    mocker.patch('dao.user_dao.UserDao.get_user_by_username_and_password', mock_login)
+
+    user_service = UserService()
+
+
+    try:
+        actual = user_service.login("johndoe", "pass123$")
+
+        assert False
+
+    except LoginError:
+        assert True
+
+
+
+
+
+
+
+
+
 
 
 
