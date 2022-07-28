@@ -25,6 +25,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 }
 );
 
+const selectElement = document.querySelector('.status');
+
+selectElement.addEventListener('change', async (event) => {
+    
+    event.preventDefault()
+            let res = await fetch(`http://127.0.0.1:8082/reimbursements?status=${selectElement.value}`, {
+                'credentials': 'include',
+                'method': 'GET',
+                'headers': {
+                    'Content-Type': 'application/json'}});
+            
+            let data = await res.json();
+        
+            reimbTbody.innerHTML = ""
+        
+            addReimbsToTable(data.reimbursements);
+        });
+
 
 function addReimbsToTable(reimb_obj) {
       for (reimb of reimb_obj){

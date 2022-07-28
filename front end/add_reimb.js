@@ -6,7 +6,7 @@ let username = sessionStorage.getItem('username');
 let user_id = sessionStorage.getItem('user_id')
 let today = new Date()
 
-console.log(user_id)
+// console.log(user_id)
 
 // alert("!")
 submitButton.addEventListener('click', async () => {
@@ -19,16 +19,6 @@ submitButton.addEventListener('click', async () => {
             'Content-Type': 'application/json'
         },
         'body': JSON.stringify({
-            // "description": "grocery",
-            // "receipt": null,
-            // "reimb_amount": "2000",
-            // "reimb_author": 1,
-            // "reimb_id": 5,
-            // "reimb_resolver": null,
-            // "resolved_date": null,
-            // "status": "pending",
-            // "submission_date": null,
-            // "type": "food"
 
             "reimb_amount": amountInput.value,
             "type": typeInput.value,
@@ -36,9 +26,6 @@ submitButton.addEventListener('click', async () => {
             "submission_date": today
 
             // "submission_date": "Sun, 24 Jul 2022 20:33:41 GMT"
-            
-
-
         })
     })
 
@@ -47,23 +34,38 @@ if (res.status == 201) {
     window.location.href = '/employee.html'
 
 }
-
-
 })
 
+//replace placeholder text with image name
+
+
+
+const fileInput = document.querySelector('#receipt-upload input[type=file]');
+  
+
+
+fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#receipt-upload .file-name');
+      fileName.textContent = fileInput.files[0].name;
+      
+    //   console.log(fileName)
+    
+    }
+  }
+
+  var img = document.querySelector('img');
+  fileInput.addEventListener('change', function() {
+    var url = URL.createObjectURL(fileInput.files[0]);
+    console.log(url);
+});
 
 
 
 
 
-// submitButton.addEventListener('click', submitFunc);
-
-// async function submitFunc() {
-//     try {
-//         let res = await fetch('http://127.0.0.1:8082/users/1/reimbursements')
-
-//     }
 
 
 
-// }
+
+

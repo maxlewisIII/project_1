@@ -67,29 +67,6 @@ def test_login_positive(mocker):
             "role": "employee"
         }
 
-def test_login_positive(mocker):
-    def mock_login(self, username, password):
-        if username == 'johndoe' and password == 'pass123$':
-            return (User(1, 'johndoe', 'pass123$', 'John', 'Doe', 'johndoe@gmail.com', 'employee'))
-        else:
-            return None
-
-    mocker.patch('dao.user_dao.UserDao.get_user_by_username_and_password', mock_login)
-
-    user_service = UserService()
-
-    actual = user_service.login("johndoe", "pass123$")
-
-    assert actual == {
-            "user_id": 1,
-            "username": "johndoe",
-            "password": "pass123$",
-            "first_name": "John",
-            "last_name": "Doe",
-            "email_address": "johndoe@gmail.com",
-            "role": "employee"
-        }
-
 def test_login_negative(mocker):
     def mock_login(self, username, password):
         if username == 'johndoee' and password == 'pass123$':
@@ -109,6 +86,28 @@ def test_login_negative(mocker):
 
     except LoginError:
         assert True
+
+def test_add_user(mocker, user_obj_to_add=None):
+    def mock_add_user(self,user_obj):
+        if user_obj == user_obj_to_add:
+            return User(None, 'johndoe', 'password', 'John', 'Doe', 'jimdoe@gmail.com', 'employee')
+        else:
+            return None
+    mocker.patch('dao.user_dao.UserDao.add_user', mock_add_user)
+    user_service = UserService()
+    actual = user_service.add_user(user_obj_to_add)
+    assert actual == {
+            "user_id": None,
+            "username": "johndoe",
+            "password": "password",
+            "first_name": "John",
+            "last_name": "Doe",
+            "email_address": "jimdoe@gmail.com",
+            "role": "employee"
+    }
+
+
+
 
 
 
