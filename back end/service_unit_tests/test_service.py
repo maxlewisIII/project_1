@@ -90,7 +90,7 @@ def test_login_negative(mocker):
 def test_add_user(mocker, user_obj_to_add=None):
     def mock_add_user(self,user_obj):
         if user_obj == user_obj_to_add:
-            return User(None, 'johndoe', 'password', 'John', 'Doe', 'jimdoe@gmail.com', 'employee')
+            return User(None, 'johndoe', 'password', 'John', 'Doe', 'johndoe@gmail.com', 'employee')
         else:
             return None
     mocker.patch('dao.user_dao.UserDao.add_user', mock_add_user)
@@ -102,7 +102,7 @@ def test_add_user(mocker, user_obj_to_add=None):
             "password": "password",
             "first_name": "John",
             "last_name": "Doe",
-            "email_address": "jimdoe@gmail.com",
+            "email_address": "johndoe@gmail.com",
             "role": "employee"
     }
 

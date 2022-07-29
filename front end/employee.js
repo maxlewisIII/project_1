@@ -30,7 +30,7 @@ const selectElement = document.querySelector('.status');
 selectElement.addEventListener('change', async (event) => {
     
     event.preventDefault()
-            let res = await fetch(`http://127.0.0.1:8082/reimbursements?status=${selectElement.value}`, {
+            let res = await fetch(`http://127.0.0.1:8082/users/${user_id}/reimbursements?status=${selectElement.value}`, {
                 'credentials': 'include',
                 'method': 'GET',
                 'headers': {

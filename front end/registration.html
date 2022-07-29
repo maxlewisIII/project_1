@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Expense Reimbursement Application</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script defer src="/login.js"></script>
+    <script defer src="/registration.js"></script>
   </head>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -95,15 +95,26 @@
                     
                     <div class="block">
                         <label class="radio">
-                            <input type="radio" name="role">
+                            <input type="radio">
                             Employee
                         </label>
                         <label class="radio">
-                            <input type="radio" name="role">
+                            <input type="radio">
                             Finance Manager
                         </label>
                     </div>
-                    <button id="register-submit-btn" class="button is-success">Sign Up</button>  
+
+                    <a id="register-submit-btn" class="button is-success" href="/login.html">
+                      <strong>Sign Up</strong>
+                    </a>
+
+                  </div>
+
+
+
+                    
+                    <!-- <button href="/login.html" id="sign-up-btn" class="button is-success">Sign Up</button> -->
+
                 </form>
                 
             </div>

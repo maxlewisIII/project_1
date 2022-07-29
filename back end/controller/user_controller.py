@@ -63,7 +63,7 @@ def add_user():
     role = request_body_dict.get('role')
 
     try:
-        added_user = user_service.add_user(User(user_id, username, password, first_name, last_name, email_address, role))
+        added_user = user_service.add_user(User(user_id, username, password, first_name, last_name, email_address, role)), 201
 
     except RegistrationError as e:
         return {

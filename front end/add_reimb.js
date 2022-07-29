@@ -9,6 +9,29 @@ let today = new Date()
 // console.log(user_id)
 
 // alert("!")
+
+const fileInput = document.querySelector('#receipt-upload input[type=file]');
+
+
+fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#receipt-upload .file-name');
+      fileName.textContent = fileInput.files[0].name;
+      
+    //   console.log(fileName)
+    
+    }
+  }
+
+  var img = document.querySelector('img');
+  fileInput.addEventListener('change', function() {
+    url = URL.createObjectURL(fileInput.files[0]);
+    console.log(url);
+});
+
+
+
+
 submitButton.addEventListener('click', async () => {
     
     let res = await fetch(`http://127.0.0.1:8082/users/${user_id}/reimbursements`, {
@@ -40,25 +63,25 @@ if (res.status == 201) {
 
 
 
-const fileInput = document.querySelector('#receipt-upload input[type=file]');
+
   
 
 
-fileInput.onchange = () => {
-    if (fileInput.files.length > 0) {
-      const fileName = document.querySelector('#receipt-upload .file-name');
-      fileName.textContent = fileInput.files[0].name;
+// fileInput.onchange = () => {
+//     if (fileInput.files.length > 0) {
+//       const fileName = document.querySelector('#receipt-upload .file-name');
+//       fileName.textContent = fileInput.files[0].name;
       
-    //   console.log(fileName)
+//     //   console.log(fileName)
     
-    }
-  }
+//     }
+//   }
 
-  var img = document.querySelector('img');
-  fileInput.addEventListener('change', function() {
-    var url = URL.createObjectURL(fileInput.files[0]);
-    console.log(url);
-});
+//   var img = document.querySelector('img');
+//   fileInput.addEventListener('change', function() {
+//     var url = URL.createObjectURL(fileInput.files[0]);
+//     console.log(url);
+// });
 
 
 

@@ -11,8 +11,13 @@ class ReimbursementService:
         self.reimbursement_dao = ReimbursementDao()
         self.user_dao = UserDao()
 
-    def get_all_reimb_by_user_id(self, user_id):
-        return list(map(lambda a: a.to_dict(), self.reimbursement_dao.get_all_reimb_by_user_id(user_id)))
+    def get_all_reimb_by_user_id(self, user_id, status):
+        if status is None:
+            return list(map(lambda a: a.to_dict(), self.reimbursement_dao.get_all_reimb_by_user_id(user_id)))
+
+        if status is not None:
+            return list(map(lambda a: a.to_dict(), self.reimbursement_dao.get_reimbs_by_id_and_status(user_id, status)))
+
 
     def get_all_reimbs(self):
         list_of_reimbs = self.reimbursement_dao.get_all_reimbs()
